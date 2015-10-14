@@ -14,7 +14,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "coffee -c test.coffee && node test.js",
+	  "prepublish": "coffee -c *.coffee && sed -i '' '1s:^:#!/usr/bin/env node\\\n\\\n:' cli.js"
   },
   "files": [
     "index.js",
@@ -45,6 +46,7 @@
     "unique-random-array": "^1.0.0"
   },
   "devDependencies": {
-    "ava": "0.0.4"
+    "ava": "0.0.4",
+		"coffee-script" : "*"
   }
 }
