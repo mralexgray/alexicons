@@ -1,27 +1,25 @@
 {
-  "name": "cat-names",
-  "version": "1.0.2",
-  "description": "Get popular cat names",
+  "name": "alexicons",
+  "version": "0.0.1",
+  "description": "Use fun alexicons",
   "license": "MIT",
-  "repository": "sindresorhus/cat-names",
+  "repository": "mralexgray/alexicons",
   "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
+    "name": "Alex Gray",
+    "email": "alex@mrgray.com",
+    "url": "mrgray.com"
   },
-  "bin": "cli.js",
-  "engines": {
-    "node": ">=0.10.0"
-  },
+  "bin": "src/cli.js",
   "scripts": {
-    "test": "coffee -c test.coffee && node test.js",
-	  "prepublish": "coffee -c *.coffee && sed -i '' '1s:^:#!/usr/bin/env node\\\n\\\n:' cli.js"
+	  "clean": "rm -r src/*.js",
+		"build" : "coffee -c src/*.coffee",
+	  "build:watch": "watch 'npm install -g' ./**/*",
+		"test": "node src/test.js",
+		"fixbin" : "sed -i '' '1s:^:#!/usr/bin/env node\\\n\\\n:' src/cli.js",
+		"pretest" : "npm run build",
+	  "prepublish": "npm run build && npm run fixbin"
   },
-  "files": [
-    "index.js",
-    "cli.js",
-    "cat-names.json"
-  ],
+  "files": [ "src", "resources" ],
   "keywords": [
     "cli-app",
     "cli",
