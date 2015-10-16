@@ -9,17 +9,17 @@
     "email": "alex@mrgray.com",
     "url": "mrgray.com"
   },
-  "bin": "src/cli.js",
+  "bin": "lib/cli.js",
   "scripts": {
-	  "clean": "rm -r src/*.js",
-		"build" : "coffee -c src/*.coffee",
-	  "build:watch": "watch 'npm install -g' ./**/*",
-		"test": "node src/test.js",
-		"fixbin" : "sed -i '' '1s:^:#!/usr/bin/env node\\\n\\\n:' src/cli.js",
+	  "clean": "rm -f lib/*.js",
+		"build" : "coffee -o lib -c src/*.coffee",
+	  "build:watch": "watch 'npm install -g' src",
 		"pretest" : "npm run build",
+		"test": "node lib/test.js",
+		"fixbin" : "sed -i '' '1s:^:#!/usr/bin/env node\\\n\\\n:' src/cli.js",
 	  "prepublish": "npm run build && npm run fixbin"
   },
-  "files": [ "src", "resources" ],
+  "directories": [ "lib", "resources" ],
   "keywords": [
     "cli-app",
     "cli",

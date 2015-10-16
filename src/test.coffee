@@ -1,11 +1,11 @@
 
 test = require 'ava'
-catNames = require './'
+alexicons = require './'
 
 test (t) ->
-	t.assert catNames.all.length > 0
-	t.assert catNames.random()
-	t.assert catNames.random() != catNames.random()
-	t.assert catNames.all[0] == 'Abby'
-	t.assert catNames.all[1] == 'Angel'
+	t.assert alexicons.all.length > 0
+	t.assert alexicons.random()
+	t.assert alexicons.random() != alexicons.random()
+	t.assert alexicons.all[0] == 'When do I look at the camera?'
+	t.assert alexicons.all[1] == 'When do I look?'
 	t.end()
